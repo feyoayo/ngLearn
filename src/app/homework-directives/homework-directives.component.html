@@ -1,0 +1,15 @@
+<div class="btn-container">
+  <div>
+    <button (click)="detailsCLickHandler()" (mousedown)="showValue = true" (mouseup)="showValue = false">Display Details
+    </button>
+  </div>
+  <p *ngIf="showValue">Secret Password = tuna</p>
+</div>
+
+<hr>
+<div class="log-container">
+  <p *ngFor="let timestamp of clickedTimestamps; let i = index" [ngStyle]="{background: i > 4 && 'blue'}"
+     [ngClass]="{white: i > 4}">{{timestamp}}</p>
+</div>
+
+

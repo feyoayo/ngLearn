@@ -5,6 +5,15 @@
 <p *ngIf="userCreated; else waitUser">
   User was created, user name is {{ username }}
 </p>
+<p *ngIf="userNameError" [ngStyle]="{color: userNameError && 'red'}">User already exist</p>
 <ng-template #waitUser>
   <p>Wait for user</p>
 </ng-template>
+
+<hr>
+<ul>
+  <li *ngFor="let user of users">{{user}}</li>
+</ul>
+
+<hr>
+<app-homework-directives></app-homework-directives>

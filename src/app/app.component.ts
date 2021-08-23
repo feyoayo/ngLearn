@@ -7,16 +7,29 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   constructor() {}
-  username = '';
+
+  username: string = '';
   userCreated = false;
+  users: any[] = [];
+  userNameError = false;
 
   resetName() {
     this.username = '';
   }
+
   makeUser() {
+    this.users.map((user) => {
+      if (user === this.username) {
+        this.userNameError = true;
+      }
+    });
+    if (this.userNameError) {
+      return;
+    }
+    this.userNameError = false;
     this.userCreated = true;
-    setTimeout(() => {
-      this.userCreated = false;
-    }, 3000);
+    this.users.push(this.username);
+    this.userCreated = false;
+    this.username = '';
   }
 }
